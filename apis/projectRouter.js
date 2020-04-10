@@ -17,8 +17,27 @@ router.post("/", (req, res) => {
            .then(project => {
                res.status(201).json(project)
            })
+           
 })
 
+router.put("/:id", (req, res) => {
+    const {id } = req.params;
+    const { name, description } = req.body;
+    Project.update(id, { name, description})
+           .then(updated => {
+               console.log(updated)
+               res.status(200).json(updated)
+           })
+           .catch(err => {
+               console.log(err)
+               res.status(500).json({error: "Error updating Project data"});
+           })
+})
+
+router.delete("/:id", (req, res) => {
+    const { id } = req.params;
+    
+})
 
 module.exports = router;
 
