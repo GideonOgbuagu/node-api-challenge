@@ -22,6 +22,13 @@ router.get("/:id", (req, res) => {
            })
 })
 
+router.get("/:id/actions", (req, res) => {
+    Action.get()
+          .then(action => {
+              res.status(200).json(action)
+          })
+
+})
 
 router.get("/:id/actions/:project_id", (req, res) => {
     // const { description, notes } = req.body;
@@ -41,13 +48,7 @@ router.get("/:id/actions/:project_id", (req, res) => {
 
 })
 
-// router.get("/:id/actions", (req, res) => {
-//     Action.get()
-//           .then(action => {
-//               res.status(200).json(action)
-//           })
 
-// })
 // router.get("/:id/actions/:action_id", (req, res) => {
 //     // const { description, notes } = req.body;
 //     const { action_id} = req.params;
