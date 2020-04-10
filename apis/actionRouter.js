@@ -63,7 +63,7 @@ router.delete("/:id", (req, res) => {
     Action.remove(id)
            .then(() => {
                if(id) {
-                   res.status(200).json({message: "project deleted"});
+                   res.status(200).json({message: "action deleted"});
                } else {
                    res.status(404).json({ message: "Not found" })
                }
