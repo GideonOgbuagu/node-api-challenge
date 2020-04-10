@@ -11,7 +11,13 @@ router.get("/", (req, res) => {
            })
 })
 
-router
+router.post("/", (req, res) => {
+    const { name, description } = req.body;
+    Project.insert({ name, description })
+           .then(project => {
+               res.status(201).json(project)
+           })
+})
 
 
 module.exports = router;
