@@ -30,9 +30,9 @@ router.get("/:id/actions", (req, res) => {
 
 })
 
-router.get("/:id/actions/:project_id", (req, res) => {
+router.get("/:id/actions/", (req, res) => {
     // const { description, notes } = req.body;
-    const { project_id} = req.params;
+    const { project_id } = req.params;
     Project.getProjectActions(project_id)
           .then(action => {
               if(action) {
