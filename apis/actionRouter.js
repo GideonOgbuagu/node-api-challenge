@@ -43,19 +43,19 @@ router.post("/", (req, res) => {
            
 })
 
-// router.put("/:id", (req, res) => {
-//     const {id } = req.params;
-//     const { project_id, description, notes } = req.body;
-//     Action.update(id,  { project_id, description, notes })
-//            .then(updated => {
-//                console.log(updated)
-//                res.status(200).json(updated)
-//            })
-//            .catch(err => {
-//                console.log(err)
-//                res.status(500).json({error: "Error updating Action data"});
-//            })
-// })
+router.put("/:id", (req, res) => {
+    const {id } = req.params;
+    const { project_id, description, notes } = req.body;
+    Action.update(id,  { project_id, description, notes })
+           .then(updated => {
+               console.log(updated)
+               res.status(200).json(updated)
+           })
+           .catch(err => {
+               console.log(err)
+               res.status(500).json({error: "Error updating Action data"});
+           })
+})
 
 
 // router.delete("/:id", (req, res) => {
