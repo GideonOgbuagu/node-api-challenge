@@ -31,25 +31,29 @@ router.get("/:id", (req, res) => {
 
 
 router.post("/", (req, res) => {
-    const { description, notes } = req.body;
-    Action.insert({ description, notes })
+    const data = req.body;
+    Action.insert(data)
            .then(project => {
+               console.log(project)
                res.status(201).json(project)
+           })
+           .catch(err => {
+               res.status(500).json({error: "Action data could not be inserted"})
            })
            
 })
 
 // router.put("/:id", (req, res) => {
 //     const {id } = req.params;
-//     const { description, notes } = req.body;
-//     Action.update(id,  { description, notes })
+//     const { project_id, description, notes } = req.body;
+//     Action.update(id,  { project_id, description, notes })
 //            .then(updated => {
 //                console.log(updated)
 //                res.status(200).json(updated)
 //            })
 //            .catch(err => {
 //                console.log(err)
-//                res.status(500).json({error: "Error updating Project data"});
+//                res.status(500).json({error: "Error updating Action data"});
 //            })
 // })
 
